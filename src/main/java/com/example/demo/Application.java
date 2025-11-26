@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,6 +20,36 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
+
+    public static String askGemini(String prompt) {
+        String s =  """
+                      {
+                          "contents": [
+                            {
+                              "role": "user",
+                              "parts": [
+                                {
+                                  "text": "%s"
+                                }
+                              ]
+                            }
+                          ],
+                        }
+                    """;
+
+        URL url = null;
+        try {
+            url = new URL("https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-2.5-flash-lite:streamGenerateContent?key=${AQ.Ab8RN6IKoI4cD-ehgqd36wLtJy-8al0F34wuf-ZBDX8_0C5cBg}");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Content-Type", "application/json");
+        }
+        catch (Exception e) {
+            System.out.println("Erro ao criar URL/conexão. Erro: " + e.getMessage());
+            return "";
+        }
+        return "";
+    }
 
     @Bean
     CommandLineRunner runChampion(ChampionService s) {
