@@ -12,7 +12,6 @@ public class Champion {
     @Column(unique = true)
     private String name;
 
-    @Column(unique = true)
     private String fotoUrl;
 
     private float healthPoints;
@@ -24,13 +23,13 @@ public class Champion {
     private float armor;
     private float magicResistance;
     private float movementSpeed;
-    private float range;
+    private float attackRange;
 
     public Champion() {
     }
 
     public Champion(String name, String fotoUrl, float healthPoints, float hp5, float magicPoints, float mp5, float attackDamage, float attackSpeed,
-                    float armor, float magicResistance, float movementSpeed, float range) {
+                    float armor, float magicResistance, float movementSpeed, float attackRange) {
         this.name = name;
         this.fotoUrl = fotoUrl;
         this.healthPoints = healthPoints;
@@ -42,7 +41,7 @@ public class Champion {
         this.armor = armor;
         this.magicResistance = magicResistance;
         this.movementSpeed = movementSpeed;
-        this.range = range;
+        this.attackRange = attackRange;
     }
 
     public Long getId() {
@@ -141,11 +140,11 @@ public class Champion {
         this.movementSpeed = movementSpeed;
     }
 
-    public float getRange() {
-        return range;
+    public float getAttackRange() {
+        return attackRange;
     }
 
-    public void setRange(float range) {
-        this.range = range;
+    public void setAttackRange(float attackRange) {
+        this.attackRange = attackRange;
     }
 }
