@@ -51,7 +51,7 @@ public class Application {
         s = String.format(s, prompt);
 
         try {
-            URL url = new URL("https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-2.5-flash-lite:generateContent?key=CHAVE");
+            URL url = new URL("https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-2.5-flash-lite:generateContent?key=CHAVEVERTEX");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
             con.setDoOutput(true);

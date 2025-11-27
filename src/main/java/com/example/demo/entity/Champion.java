@@ -30,8 +30,6 @@ public class Champion {
     private float movementSpeed;
     private float attackRange;
 
-    static int aiChampCount = 0;
-
     public static Champion Generate() {
         Champion c = new Champion();
         String s = Application.askGemini("Generate a brand new League of Legends champion with these stats: name, healthPoints, healthRegen, magicPoints, " +
@@ -54,9 +52,8 @@ public class Champion {
             c.setAttackRange(Float.parseFloat(json.get("attackRange").toString()));
 
             if (Application.generateImage("Generate a League of Legends champion's splash art based on their level 1 stats and name (ignore 'id' and 'fotoUrl'): " + c.toString(),
-                                String.format("images/ai_champ_%d.png", aiChampCount))) {
-                c.setFotoUrl(String.format("images/ai_champ_%d.png", aiChampCount));
-                aiChampCount++;
+                                "src/main/resources/static/ai_images/ai_champ.png")) {
+                c.setFotoUrl("ai_images/ai_champ.png");
                 return c;
             }
         }
