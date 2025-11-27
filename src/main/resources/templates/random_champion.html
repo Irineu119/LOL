@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoL</title>
+    <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <img th:src="${champion.fotoUrl}" width="800px" style="display: block;margin: 0px auto;">
+    <div>
+        <table style="margin: 0px auto;max-width: 800px;">
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nome</td>
+                    <td th:text="${champion.name}"></td>
+                </tr>
+                <tr>
+                    <td>HP</td>
+                    <td th:text="${champion.healthPoints}"></td>
+                </tr>
+                <tr>
+                    <td>Regeneração de HP</td>
+                    <td th:text="${champion.hp5}"></td>
+                </tr>
+                <tr>
+                    <td>MP</td>
+                    <td th:text="${champion.magicPoints}"></td>
+                </tr>
+                <tr>
+                    <td>Regeneração de MP</td>
+                    <td th:text="${champion.mp5}"></td>
+                </tr>
+                <tr>
+                    <td>Dano de Ataque</td>
+                    <td th:text="${champion.attackDamage}"></td>
+                </tr>
+                    <td>Velocidade de Ataque</td>
+                    <td th:text="${champion.attackSpeed}"></td>
+                    </tr>
+                <tr>
+                    <td>Armadura</td>
+                    <td th:text="${champion.armor}"></td>
+                </tr>
+                <tr>
+                    <td>Resistência Mágica</td>
+                    <td th:text="${champion.magicResistance}"></td>
+                </tr>
+				<tr>
+                    <td>Velocidade</td>
+                    <td th:text="${champion.movementSpeed}"></td>
+                </tr>
+				<tr>
+                    <td>Alcance</td>
+                    <td th:text="${champion.attackRange}"></td>
+                </tr>
+            </tbody>
+    </div>
+</body>
+</html>
