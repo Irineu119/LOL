@@ -52,7 +52,7 @@ public class Champion {
             c.setAttackRange(Float.parseFloat(json.get("attackRange").toString()));
 
             if (Application.generateImage("Generate a League of Legends champion's splash art based on their level 1 stats and name (ignore 'id' and 'fotoUrl'): " + c.toString(),
-                                "src/main/resources/static/ai_images/ai_champ.png")) {
+                                "ai_images/ai_champ.png")) {
                 c.setFotoUrl("ai_images/ai_champ.png");
                 return c;
             }

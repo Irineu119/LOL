@@ -5,11 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoL</title>
     <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" rel="stylesheet" type="text/css" />
+    <script src="javascript/lol.js"></script>
 </head>
 <body>
-    <button style="position: fixed; top: 92.5%; right: 75%">IA</button>
-    <button style="position: fixed; top: 92.5%; right: 20.46875%">Real</button>
-    <img th:src="@{${champion.fotoUrl}}" th:alt="${champion.name}" width="50%" style="display: block;margin: 0px auto;">
+    <button id="aiButton" style="position: fixed; top: 92.5%; right: 75%; background-color: red">IA</button>
+    <button id="realButton" style="position: fixed; top: 92.5%; right: 20.5%; background-color: green">Real</button>
+    <img id="image" th:src="${champion.fotoUrl}" th:alt="${champion.name}" width="50%" style="display: block;margin: 0px auto;">
     <div>
         <table style="margin: 0px auto;max-width: 50%;">
             <thead>

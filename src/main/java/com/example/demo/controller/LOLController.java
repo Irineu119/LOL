@@ -2,11 +2,17 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Champion;
 import com.example.demo.service.ChampionService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
@@ -32,6 +38,12 @@ public class LOLController {
         ModelAndView mv = new ModelAndView("random_champion");
         mv.addObject("champion", c);
         return mv;
+    }
+
+    @GetMapping(value = "/ai_images/{nome}", produces = MediaType.IMAGE_PNG_VALUE)
+    @ResponseBody
+    public byte[] getAiImage(@PathVariable String nome) throws IOException {
+        return Files.readAllBytes(Paths.get("ai_images/" + nome));
     }
 
 }

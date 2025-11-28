@@ -2,8 +2,6 @@ package com.example.demo;
 
 import com.example.demo.entity.Champion;
 import com.example.demo.service.ChampionService;
-import com.fasterxml.jackson.core.JsonParser;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -22,9 +19,6 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 @SpringBootApplication
 public class Application {
@@ -94,14 +88,13 @@ public class Application {
                         }
                     """;
         s = String.format(s, prompt);
-
         try {
             URL url = new URL("https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
             con.setDoOutput(true);
             con.setRequestProperty("Content-Type", "application/json");
-            con.setRequestProperty("x-goog-api-key", "CHAVE");
+            con.setRequestProperty("x-goog-api-key", "CHAVEIMAGEN");
             con.getOutputStream().write(s.getBytes(StandardCharsets.UTF_8));
 
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
